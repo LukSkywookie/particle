@@ -1,0 +1,20 @@
+{
+  "name": "canvas",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "webpack-cli": "^3.1.0",
+    "webpack": "^4.16.2",
+    "webpack-dev-server": "^3.1.5"
+  },
+  "devDependencies": {
+    "html-webpack-plugin": "^4.0.0-alpha"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server"
+  },
+  "author": "",
+  "license": "ISC"
+}

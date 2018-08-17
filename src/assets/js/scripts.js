@@ -1,7 +1,8 @@
+require('../scss/style.scss')
+
 //Create canvas
 var canvas = document.querySelector('canvas');
 var ctx = canvas.getContext('2d');
-
 var WIDTH = window.innerWidth;
 var HEIGHT = window.innerHeight;
 canvas.width = WIDTH;
@@ -24,7 +25,7 @@ var alpha = 1.00;
 var inputValue = $('input').val();
 
 function generateParticles() {
-	for (var i = 0; i < 100; i++) {
+	for (var i = 0; i < 10; i++) {
 		new createParticle();
 	}
 }
@@ -50,7 +51,7 @@ function createParticle() {
 	this.id = particleIndex;
     particleIndex++;
 	this.r = Math.random() * 10 >> 0;
-	this.g = Math.random() * 240 >> 0;
+	this.g = Math.random() * 140 >> 0;
 	this.b = Math.random() * 255 >> 0;
 	this.randomAlpha = Math.floor(Math.random() * (1 - 0.5 + 1)) + 0.5; 
 	this.color = "rgba("+ this.r +","+ this.g +","+ this.b +","+ this.randomAlpha +")";
@@ -98,15 +99,21 @@ function draw() {
 }
 
 function clickHandler() {
-	$('canvas').on('mousedown', function(e) {
-		window.cancelAnimationFrame(requestAnim);
+	$('canvas').mousedown(function () {
+		$(this).mousemove(function (e) {
+			window.cancelAnimationFrame(requestAnim);
 
-		clickPosX = e.clientX;
-		clickPosY = e.clientY;
+			clickPosX = e.clientX;
+			clickPosY = e.clientY;
 
-		generateParticles();
+			generateParticles();
 
-		new draw();
-    });
+			new draw();
+		});
+	}).mouseup(function () {
+		$(this).unbind('mousemove');
+	}).mouseout(function () {
+		$(this).unbind('mousemove');
+	});
 }
 clickHandler()

@@ -1,3 +1,15 @@
-# particle-test
-generates defined amount of particles on mousemove event
-![alt text](https://raw.githubusercontent.com/LukSkywookie/particle/master/src/assets/img/particle.jpg)
+# 🚀 Welcome to your new awesome project!
+
+This project has been created using **webpack-cli**, you can now run
+
+```
+npm run build
+```
+
+or
+
+```
+yarn build
+```
+
+to bundle your application
